@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NoteData" format=3 uid="uid://dimbjteueqk6b"]
+
+[ext_resource type="Script" uid="uid://cckoydpjrmdfw" path="res://scripts/journal/note_basement.gd" id="1_ytxb5"]
+
+[resource]
+script = ExtResource("1_ytxb5")
+id = "note_basement"
+title = "Заметкац"
+text = "Ну и дыра. Как у моей бывшей."

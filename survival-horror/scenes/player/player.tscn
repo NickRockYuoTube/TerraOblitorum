@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bo0gl6dpijim"]
+
+[ext_resource type="Script" uid="uid://1yk3qi0utudl" path="res://scripts/player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://d1qoebiif10gh" path="res://scripts/player/interaction_ray.gd" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://dsci21nmdiml3" path="res://scripts/components/health.gd" id="3_gmlin"]
+[ext_resource type="Script" uid="uid://bw2ww8vjcuekw" path="res://scripts/weapons/weapon_manager.gd" id="3_lvxji"]
+[ext_resource type="Script" uid="uid://3ool6y6ckf12" path="res://scripts/player/player_noise.gd" id="5_p47bc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
+radius = 0.35
+
+[node name="Player" type="CharacterBody3D" unique_id=692152744 node_paths=PackedStringArray("health")]
+script = ExtResource("1_oul6g")
+health = NodePath("Health")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1543152501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_g4v7s")
+
+[node name="Head" type="Node3D" parent="." unique_id=1973444708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1956036333]
+fov = 70.0
+
+[node name="InteractionRay" type="RayCast3D" parent="Head/Camera3D" unique_id=354427666]
+script = ExtResource("2_rkbax")
+
+[node name="WeaponManager" type="Node3D" parent="Head/Camera3D" unique_id=120320371]
+script = ExtResource("3_lvxji")
+
+[node name="Health" type="Node" parent="." unique_id=1234434636]
+script = ExtResource("3_gmlin")
+
+[node name="PlayerNoise" type="Node" parent="." unique_id=694407214]
+script = ExtResource("5_p47bc")

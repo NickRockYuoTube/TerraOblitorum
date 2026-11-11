@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b3yld5hr63sn"]
+
+[ext_resource type="Script" uid="uid://f8ofmjtn3eic" path="res://scripts/puzzles/code_lock.gd" id="1_546fh"]
+[ext_resource type="Material" uid="uid://c054nxfc6v7xa" path="res://assets/materiak/pazles.tres" id="2_7ydyj"]
+[ext_resource type="Script" uid="uid://c3x0agug63jy7" path="res://scripts/interaction/interactable.gd" id="3_ec2bx"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_woqd4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[node name="CodeLock" type="StaticBody3D" unique_id=1720281139 node_paths=PackedStringArray("interactable")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+physics_material_override = SubResource("PhysicsMaterial_woqd4")
+script = ExtResource("1_546fh")
+interactable = NodePath("Interactable")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1416696627]
+transform = Transform3D(0.25, 0, 0, 0, 0.35, 0, 0, 0, 0.05, 0, 0, 0)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2054668991]
+transform = Transform3D(0.25, 0, 0, 0, 0.35, 0, 0, 0, 0.05, 0, 0, 0)
+material_override = ExtResource("2_7ydyj")
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="Interactable" type="Node" parent="." unique_id=1325100917]
+script = ExtResource("3_ec2bx")

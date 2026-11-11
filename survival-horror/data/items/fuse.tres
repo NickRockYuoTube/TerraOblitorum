@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://udwtkux6kcy5"]
+
+[ext_resource type="Script" uid="uid://b56xj6xab02xd" path="res://scripts/items/item_data.gd" id="1_326s0"]
+
+[resource]
+script = ExtResource("1_326s0")
+id = "fuse"
+display_name = "Предохранитель"
+description = "Предохранитель"
+type = 5
+can_discard = false
+stackable = true
+max_stack = 5
+metadata/_custom_type_script = "uid://b56xj6xab02xd"

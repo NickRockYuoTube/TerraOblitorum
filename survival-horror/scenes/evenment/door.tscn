@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cnrry1lcyo2kr"]
+
+[ext_resource type="Script" uid="uid://b1cetgbver2k4" path="res://scripts/interaction/door.gd" id="1_hw7ip"]
+[ext_resource type="Script" uid="uid://c3x0agug63jy7" path="res://scripts/interaction/interactable.gd" id="1_j3phc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hw7ip"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+
+[node name="Door" type="Node3D" unique_id=2021409791 node_paths=PackedStringArray("hinge", "interactable")]
+script = ExtResource("1_hw7ip")
+hinge = NodePath("Hinge")
+interactable = NodePath("Hinge/Interactable")
+
+[node name="Hinge" type="AnimatableBody3D" parent="." unique_id=901923319]
+physics_material_override = SubResource("PhysicsMaterial_hw7ip")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge" unique_id=1752324685]
+transform = Transform3D(1, 0, 0, 0, 2.1, 0, 0, 0, 0.08, 0.5, 1.05, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge" unique_id=975518385]
+transform = Transform3D(1, 0, 0, 0, 2.1, 0, 0, 0, 0.08, 0.5, 1.05, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="Interactable" type="Node" parent="Hinge" unique_id=1112221586]
+script = ExtResource("1_j3phc")

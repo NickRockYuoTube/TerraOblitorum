@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://q8salrfxuxrm"]
+
+[ext_resource type="Script" uid="uid://c3x0agug63jy7" path="res://scripts/interaction/interactable.gd" id="1_n8qrg"]
+[ext_resource type="Script" uid="uid://5hhtvuvu5bk2" path="res://scripts/interaction/save_point.gd" id="1_xvfwu"]
+[ext_resource type="Resource" uid="uid://ct3bhhmcojlv3" path="res://data/items/ink_ribbon.tres" id="2_wiums"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wiums"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wiums"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n0rt3"]
+
+[node name="SavePoint" type="StaticBody3D" unique_id=355482547 node_paths=PackedStringArray("interactable")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16, 0)
+physics_material_override = SubResource("PhysicsMaterial_wiums")
+script = ExtResource("1_xvfwu")
+interactable = NodePath("Interactable")
+required_item = ExtResource("2_wiums")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=871543270]
+transform = Transform3D(0.5, 0, 0, 0, 0.3, 0, 0, 0, 0.4, 0, 0, 0)
+mesh = SubResource("BoxMesh_wiums")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=686933773]
+transform = Transform3D(0.5, 0, 0, 0, 0.3, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("BoxShape3D_n0rt3")
+
+[node name="Interactable" type="Node" parent="." unique_id=373790351]
+script = ExtResource("1_n8qrg")

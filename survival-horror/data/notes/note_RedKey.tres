@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NoteData" format=3 uid="uid://5j4hwkjhhyka"]
+
+[ext_resource type="Script" uid="uid://cckoydpjrmdfw" path="res://scripts/journal/note_basement.gd" id="1_v50op"]
+
+[resource]
+script = ExtResource("1_v50op")
+id = "note_RedKey"
+text = "[color=red]Красный ключ[/color]  откроет дверь в подвал.
+СЕРЬЁЗНО?!"
+metadata/_custom_type_script = "uid://cckoydpjrmdfw"

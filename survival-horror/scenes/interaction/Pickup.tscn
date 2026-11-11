@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dwdfm5c3md84k"]
+
+[ext_resource type="Script" uid="uid://c3x0agug63jy7" path="res://scripts/interaction/interactable.gd" id="1_qirpf"]
+[ext_resource type="Script" uid="uid://b3412bo46fyp8" path="res://scripts/interaction/pickup.gd" id="1_v4dsq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w7r7j"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v4dsq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qirpf"]
+
+[node name="Pickup" type="StaticBody3D" unique_id=334405632 node_paths=PackedStringArray("interactable", "default_visual")]
+physics_material_override = SubResource("PhysicsMaterial_w7r7j")
+script = ExtResource("1_v4dsq")
+interactable = NodePath("Interactable")
+default_visual = NodePath("MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=437552958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_v4dsq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1779315304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_qirpf")
+
+[node name="Interactable" type="Node" parent="." unique_id=949059334]
+script = ExtResource("1_qirpf")

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://d0h7xteep2cv8"]
+
+[ext_resource type="Script" uid="uid://dsci21nmdiml3" path="res://scripts/components/health.gd" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://blorir1bjechn" path="res://scripts/enemies/enemy.gd" id="1_md0e3"]
+[ext_resource type="Material" uid="uid://cfioydwihwpg3" path="res://assets/materiak/new_standard_material_3d.tres" id="2_4ra3w"]
+[ext_resource type="Material" uid="uid://x6r6gvxubd44" path="res://assets/materiak/2new_standard_material_3d.tres" id="3_5uy6h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
+radius = 0.35
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
+radius = 0.35
+height = 1.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+size = Vector3(0.15, 0.15, 0.3)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=937014504 node_paths=PackedStringArray("health")]
+script = ExtResource("1_md0e3")
+health = NodePath("Health")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=711465687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_g4v7s")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=556344026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = ExtResource("2_4ra3w")
+mesh = SubResource("CapsuleMesh_g4v7s")
+
+[node name="Nose" type="MeshInstance3D" parent="Body" unique_id=2021774256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -0.35786423)
+material_override = ExtResource("3_5uy6h")
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1251004153]
+
+[node name="Health" type="Node" parent="." unique_id=1257525161]
+script = ExtResource("1_7p1mj")
+
+[node name="DebugLabel" type="Label3D" parent="." unique_id=877203647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9242477, 0)
+offset = Vector2(0, 2.1)
+billboard = 1

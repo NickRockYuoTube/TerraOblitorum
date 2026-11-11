@@ -1,0 +1,461 @@
+[gd_scene format=3 uid="uid://dse35sqjge32o"]
+
+[ext_resource type="Script" uid="uid://e2brqh0dy0bs" path="res://scripts/ui/hud.gd" id="1_rbyyf"]
+[ext_resource type="Script" uid="uid://ds6c6wk404ta0" path="res://scripts/ui/damage_overlay.gd" id="2_6fi6k"]
+[ext_resource type="Script" uid="uid://ddb615f1k3l54" path="res://scripts/ui/inventory_ui.gd" id="2_276te"]
+[ext_resource type="Script" uid="uid://cyor06a3b7ydy" path="res://scripts/ui/journal_ui.gd" id="3_546lt"]
+[ext_resource type="PackedScene" uid="uid://dwdfm5c3md84k" path="res://scenes/interaction/Pickup.tscn" id="4_hd3ao"]
+[ext_resource type="Script" uid="uid://c7hneywj1hudj" path="res://scripts/ui/death_screen.gd" id="5_uo2fv"]
+[ext_resource type="Script" uid="uid://dgi2wfsge7y7w" path="res://scripts/ui/code_lock_ui.gd" id="6_047uy"]
+[ext_resource type="Script" uid="uid://dql6y51hgagdb" path="res://scripts/ui/storage_ui.gd" id="8_0i1j5"]
+[ext_resource type="Script" uid="uid://bgykhftluxjig" path="res://scripts/ui/save_ui.gd" id="9_0i1j5"]
+[ext_resource type="Script" uid="uid://pd3gms444bvw" path="res://scripts/ui/pause_menu.gd" id="10_mphia"]
+
+[node name="Hud" type="CanvasLayer" unique_id=822356989 node_paths=PackedStringArray("prompt_label", "message_label")]
+script = ExtResource("1_rbyyf")
+prompt_label = NodePath("PromptLabel")
+message_label = NodePath("MessageLabel")
+
+[node name="DamageOverlay" type="ColorRect" parent="." unique_id=1690313659]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3139398, 0.08222207, 0.04490602, 1)
+script = ExtResource("2_6fi6k")
+
+[node name="Crosshair" type="Label" parent="." unique_id=373281173]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PromptLabel" type="Label" parent="." unique_id=1245061271]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 31.5
+offset_right = 20.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AmmoLabel" type="Label" parent="." unique_id=869047443]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -51.0
+offset_right = -31.0
+offset_bottom = -28.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "11111"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InventoryUI" type="Control" parent="." unique_id=827201583 node_paths=PackedStringArray("grid", "name_label", "description_label", "use_button", "drop_button", "status_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_276te")
+grid = NodePath("Panel/HBox/Grid")
+name_label = NodePath("Panel/HBox/Details/NameLabel")
+description_label = NodePath("Panel/HBox/Details/DescriptionLabel")
+use_button = NodePath("Panel/HBox/Details/UseButton")
+drop_button = NodePath("Panel/HBox/Details/DropButton")
+status_label = NodePath("Panel/HBox/Details/StatusLabel")
+drop_pickup_scene = ExtResource("4_hd3ao")
+
+[node name="Background" type="ColorRect" parent="InventoryUI" unique_id=1254325206]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3019608)
+
+[node name="Panel" type="PanelContainer" parent="InventoryUI" unique_id=1477570990]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBox" type="HBoxContainer" parent="InventoryUI/Panel" unique_id=605271258]
+layout_mode = 2
+alignment = 1
+
+[node name="Grid" type="GridContainer" parent="InventoryUI/Panel/HBox" unique_id=940891904]
+layout_mode = 2
+columns = 4
+
+[node name="Details" type="VBoxContainer" parent="InventoryUI/Panel/HBox" unique_id=1696451692]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="StatusLabel" type="Label" parent="InventoryUI/Panel/HBox/Details" unique_id=625582719]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NameLabel" type="Label" parent="InventoryUI/Panel/HBox/Details" unique_id=1450822426]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="InventoryUI/Panel/HBox/Details" unique_id=820238622]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="UseButton" type="Button" parent="InventoryUI/Panel/HBox/Details" unique_id=1488858962]
+layout_mode = 2
+text = "Использовать"
+
+[node name="DropButton" type="Button" parent="InventoryUI/Panel/HBox/Details" unique_id=215108828]
+layout_mode = 2
+text = "Выбросить"
+
+[node name="JournalUI" type="Control" parent="." unique_id=1766224665 node_paths=PackedStringArray("note_list", "title_label", "note_text", "note_image")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_546lt")
+note_list = NodePath("Panel/HBox/NoteList")
+title_label = NodePath("Panel/HBox/Content/TitleLabel")
+note_text = NodePath("Panel/HBox/Content/RichTextLabel")
+note_image = NodePath("Panel/HBox/Content/NoteImage")
+
+[node name="Background" type="ColorRect" parent="JournalUI" unique_id=1739019415]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3019608)
+
+[node name="Panel" type="PanelContainer" parent="JournalUI" unique_id=266074111]
+custom_minimum_size = Vector2(900, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBox" type="HBoxContainer" parent="JournalUI/Panel" unique_id=1644845677]
+layout_mode = 2
+alignment = 1
+
+[node name="NoteList" type="ItemList" parent="JournalUI/Panel/HBox" unique_id=260822823]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="JournalUI/Panel/HBox" unique_id=1830423773]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleLabel" type="Label" parent="JournalUI/Panel/HBox/Content" unique_id=221608619]
+layout_mode = 2
+
+[node name="NoteImage" type="TextureRect" parent="JournalUI/Panel/HBox/Content" unique_id=1591904385]
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="JournalUI/Panel/HBox/Content" unique_id=347836431]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DeathScreen" type="Control" parent="." unique_id=804321143 node_paths=PackedStringArray("restart_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_uo2fv")
+restart_button = NodePath("VBox/RestartButton")
+
+[node name="ColorRect" type="ColorRect" parent="DeathScreen" unique_id=956132072]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7372549)
+
+[node name="VBox" type="VBoxContainer" parent="DeathScreen" unique_id=116315557]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="DeathScreen/VBox" unique_id=951565548]
+layout_mode = 2
+text = "«ВЫ ПОГИБЛИ»"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="DeathScreen/VBox" unique_id=1072271194]
+layout_mode = 2
+text = "«Попробовать снова»"
+
+[node name="CodeLockUI" type="Control" parent="." unique_id=515775114 node_paths=PackedStringArray("title_label", "display_label", "buttons_grid")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_047uy")
+title_label = NodePath("Panel/VBox/TitleLabel")
+display_label = NodePath("Panel/VBox/Display")
+buttons_grid = NodePath("Panel/VBox/Buttons")
+
+[node name="Background" type="ColorRect" parent="CodeLockUI" unique_id=952528385]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3019608)
+
+[node name="Panel" type="PanelContainer" parent="CodeLockUI" unique_id=1729585279]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -27.0
+offset_right = 20.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="CodeLockUI/Panel" unique_id=160038595]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="CodeLockUI/Panel/VBox" unique_id=526496240]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Display" type="Label" parent="CodeLockUI/Panel/VBox" unique_id=1023236862]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="GridContainer" parent="CodeLockUI/Panel/VBox" unique_id=938457756]
+layout_mode = 2
+
+[node name="StorageUI" type="Control" parent="." unique_id=154513721 node_paths=PackedStringArray("inventory_grid", "storage_grid", "name_label", "description_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_0i1j5")
+inventory_grid = NodePath("Panel/VBox/HBox/InventorySide/GridContainer")
+storage_grid = NodePath("Panel/VBox/HBox/StorageSide/Scroll/StorageGrid")
+name_label = NodePath("Panel/VBox/NameLabel")
+description_label = NodePath("Panel/VBox/DescriptionLabel")
+
+[node name="Background" type="ColorRect" parent="StorageUI" unique_id=586019499]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3019608)
+
+[node name="Panel" type="PanelContainer" parent="StorageUI" unique_id=1042025388]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -40.5
+offset_right = 3.0
+offset_bottom = 40.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="StorageUI/Panel" unique_id=2114764734]
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="StorageUI/Panel/VBox" unique_id=1543472793]
+layout_mode = 2
+
+[node name="InventorySide" type="VBoxContainer" parent="StorageUI/Panel/VBox/HBox" unique_id=808194266]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StorageUI/Panel/VBox/HBox/InventorySide" unique_id=1801687689]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Инвентарь"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="StorageUI/Panel/VBox/HBox/InventorySide" unique_id=124431189]
+layout_mode = 2
+columns = 4
+
+[node name="StorageSide" type="VBoxContainer" parent="StorageUI/Panel/VBox/HBox" unique_id=1666834889]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StorageUI/Panel/VBox/HBox/StorageSide" unique_id=1098145175]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Сундук"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="StorageUI/Panel/VBox/HBox/StorageSide" unique_id=1103536529]
+custom_minimum_size = Vector2(520, 340)
+layout_mode = 2
+
+[node name="StorageGrid" type="GridContainer" parent="StorageUI/Panel/VBox/HBox/StorageSide/Scroll" unique_id=1421266513]
+layout_mode = 2
+columns = 6
+
+[node name="NameLabel" type="Label" parent="StorageUI/Panel/VBox" unique_id=1873118187]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="StorageUI/Panel/VBox" unique_id=115283610]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SaveUI" type="Control" parent="." unique_id=818428033]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_0i1j5")
+
+[node name="ColorRect" type="ColorRect" parent="SaveUI" unique_id=495315785]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7372549)
+
+[node name="Panel" type="PanelContainer" parent="SaveUI" unique_id=717761160]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="SaveUI/Panel" unique_id=948017445]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="SaveUI/Panel/VBox" unique_id=874706081]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Сохранить игру"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slots" type="VBoxContainer" parent="SaveUI/Panel/VBox" unique_id=694282110]
+layout_mode = 2
+
+[node name="CancelButton" type="Button" parent="SaveUI/Panel/VBox" unique_id=1996524782]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Отмена"
+
+[node name="PauseMenu" type="Control" parent="." unique_id=1578439410]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_mphia")
+main_menu_scene = "uid://buov1mbokmg1s"
+
+[node name="MessageLabel" type="Label" parent="." unique_id=1792800200]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.5
+offset_top = -23.0
+offset_right = 56.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "MessageLabel "
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bh0bbb4jo1k17"]
+
+[ext_resource type="Script" uid="uid://b56xj6xab02xd" path="res://scripts/items/item_data.gd" id="1_u1wbd"]
+
+[resource]
+script = ExtResource("1_u1wbd")
+id = "key_red"
+display_name = "Красный ключ"
+description = "Ключ с красной биркой. На бирке написано «Подвал»."
+type = 1
+can_discard = false

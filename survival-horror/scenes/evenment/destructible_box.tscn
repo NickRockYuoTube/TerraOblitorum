@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b3k5kr1vao7ha"]
+
+[ext_resource type="Script" uid="uid://dsci21nmdiml3" path="res://scripts/components/health.gd" id="1_1tu33"]
+[ext_resource type="Script" uid="uid://bx52hvxba47n3" path="res://scripts/components/destructible.gd" id="2_rmft8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ylrst"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vu15f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hv7ap"]
+
+[node name="DestructibleBox" type="StaticBody3D" unique_id=64564591]
+physics_material_override = SubResource("PhysicsMaterial_ylrst")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=852035448]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_vu15f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2034112299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_hv7ap")
+
+[node name="Health" type="Node" parent="." unique_id=1427522445]
+script = ExtResource("1_1tu33")
+max_health = 50.0
+invulnerability_time = 0.0
+
+[node name="Destructible" type="Node" parent="." unique_id=126432060 node_paths=PackedStringArray("health")]
+script = ExtResource("2_rmft8")
+health = NodePath("../Health")

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://pcebp21fpcn0"]
+
+[ext_resource type="Script" uid="uid://c3x0agug63jy7" path="res://scripts/interaction/interactable.gd" id="1_r8k3g"]
+[ext_resource type="Script" uid="uid://cjr03mp0objta" path="res://scripts/interaction/note_pickup.gd" id="1_swamh"]
+[ext_resource type="Material" uid="uid://06w74qnjeg3y" path="res://assets/materiak/note.tres" id="2_0st4j"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ur00s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+
+[node name="NotePickup" type="StaticBody3D" unique_id=79826857 node_paths=PackedStringArray("interactable")]
+physics_material_override = SubResource("PhysicsMaterial_ur00s")
+script = ExtResource("1_swamh")
+interactable = NodePath("Interactable")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1056930221]
+transform = Transform3D(0.3, 0, 0, 0, 0.02, 0, 0, 0, 0.5, 0, 0.01, 0)
+material_override = ExtResource("2_0st4j")
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1398262721]
+transform = Transform3D(0.3, 0, 0, 0, 0.05, 0, 0, 0, 0.5, 0, 0.02, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="Interactable" type="Node" parent="." unique_id=548214187]
+script = ExtResource("1_r8k3g")

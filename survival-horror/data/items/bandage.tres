@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d04nyd3gprqww"]
+
+[ext_resource type="Script" uid="uid://b56xj6xab02xd" path="res://scripts/items/item_data.gd" id="1_4v35g"]
+[ext_resource type="Script" uid="uid://da0050x4gs4n2" path="res://scripts/items/effects/heal_effect.gd" id="2_wgyej"]
+
+[sub_resource type="Resource" id="Resource_w67dc"]
+script = ExtResource("2_wgyej")
+metadata/_custom_type_script = "uid://da0050x4gs4n2"
+
+[resource]
+script = ExtResource("1_4v35g")
+id = "bandage"
+display_name = "Повязка"
+description = "Повязка"
+type = 2
+stackable = true
+use_effect = SubResource("Resource_w67dc")

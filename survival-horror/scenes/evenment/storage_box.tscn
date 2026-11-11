@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://74oeshp5wyw2"]
+
+[ext_resource type="Script" uid="uid://c3x0agug63jy7" path="res://scripts/interaction/interactable.gd" id="1_fgxrg"]
+[ext_resource type="Script" uid="uid://bavrtkus2vysu" path="res://scripts/interaction/storage_box.gd" id="1_fo2u8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+
+[node name="StorageBox" type="StaticBody3D" unique_id=1516395352 node_paths=PackedStringArray("interactable")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+script = ExtResource("1_fo2u8")
+interactable = NodePath("Interactable")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1199558790]
+transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1923567970]
+transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="Interactable" type="Node" parent="." unique_id=442451055]
+script = ExtResource("1_fgxrg")

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://3tfhu13r2fsf"]
+
+[ext_resource type="Script" uid="uid://dnxsth1c15na8" path="res://scripts/puzzles/lever.gd" id="1_7u13s"]
+[ext_resource type="Material" uid="uid://c054nxfc6v7xa" path="res://assets/materiak/pazles.tres" id="2_0vwrv"]
+[ext_resource type="Script" uid="uid://c3x0agug63jy7" path="res://scripts/interaction/interactable.gd" id="3_cu1kr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gthuj"]
+
+[node name="Lever" type="StaticBody3D" unique_id=1174404627 node_paths=PackedStringArray("interactable", "handle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_7u13s")
+interactable = NodePath("Interactable")
+handle = NodePath("Handle")
+on_angle = 135.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2058788200]
+transform = Transform3D(0.3, 0, 0, 0, 0.4, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = ExtResource("2_0vwrv")
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=335907461]
+transform = Transform3D(0.3, 0, 0, 0, 0.4, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="Interactable" type="Node" parent="." unique_id=145200677]
+script = ExtResource("3_cu1kr")
+
+[node name="Handle" type="Node3D" parent="." unique_id=1547070222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.08)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Handle" unique_id=1292183537]
+transform = Transform3D(0.05, 0, 0, 0, 0.3, 0, 0, 0, 0.05, 0, 0.15, 0)
+mesh = SubResource("BoxMesh_gthuj")

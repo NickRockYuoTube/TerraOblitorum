@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ct3bhhmcojlv3"]
+
+[ext_resource type="Script" uid="uid://b56xj6xab02xd" path="res://scripts/items/item_data.gd" id="1_avw44"]
+
+[resource]
+script = ExtResource("1_avw44")
+id = "ink_ribbon"
+display_name = "Красящая лента"
+description = "Красящая лента"
+stackable = true
+max_stack = 10
+metadata/_custom_type_script = "uid://b56xj6xab02xd"

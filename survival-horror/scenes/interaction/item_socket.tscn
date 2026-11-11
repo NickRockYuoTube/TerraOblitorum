@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c825meaxgbg2e"]
+
+[ext_resource type="Script" uid="uid://dfc4vyfsbkhk" path="res://scripts/puzzles/item_socket.gd" id="1_ntshh"]
+[ext_resource type="Material" uid="uid://c054nxfc6v7xa" path="res://assets/materiak/pazles.tres" id="2_lpud3"]
+[ext_resource type="Script" uid="uid://c3x0agug63jy7" path="res://scripts/interaction/interactable.gd" id="3_nfrbi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5j83o"]
+
+[node name="ItemSocket" type="StaticBody3D" unique_id=505222109 node_paths=PackedStringArray("interactable", "placed_visual")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_ntshh")
+interactable = NodePath("Interactable")
+placed_visual = NodePath("Placed")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=637984162]
+transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = ExtResource("2_lpud3")
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1169577648]
+transform = Transform3D(0.5, 0, 0, 0, 0.6, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="Interactable" type="Node" parent="." unique_id=1225770559]
+script = ExtResource("3_nfrbi")
+
+[node name="Placed" type="MeshInstance3D" parent="." unique_id=416806711]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0.098)
+mesh = SubResource("BoxMesh_5j83o")

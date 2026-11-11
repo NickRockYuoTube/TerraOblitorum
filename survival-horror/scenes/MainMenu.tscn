@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://buov1mbokmg1s"]
+
+[ext_resource type="Script" uid="uid://cmgvmy5213x5i" path="res://scripts/ui/main_menu.gd" id="1_yqorp"]
+
+[node name="MainMenu" type="Control" unique_id=821233533]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqorp")
+first_level = "uid://d3avuq80442pm"
+background_color = Color(0.03137255, 0.03137255, 0.039215688, 0.23137255)

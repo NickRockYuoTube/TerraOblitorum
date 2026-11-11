@@ -1,0 +1,255 @@
+[gd_scene format=3 uid="uid://d3avuq80442pm"]
+
+[ext_resource type="PackedScene" uid="uid://bo0gl6dpijim" path="res://scenes/player/player.tscn" id="1_46lwt"]
+[ext_resource type="PackedScene" uid="uid://dse35sqjge32o" path="res://scenes/hud.tscn" id="2_w7r7j"]
+[ext_resource type="PackedScene" uid="uid://cnrry1lcyo2kr" path="res://scenes/evenment/door.tscn" id="2_x25rp"]
+[ext_resource type="Resource" uid="uid://bh0bbb4jo1k17" path="res://data/items/key_red.tres" id="3_e7anx"]
+[ext_resource type="PackedScene" uid="uid://c825meaxgbg2e" path="res://scenes/interaction/item_socket.tscn" id="3_pgbyh"]
+[ext_resource type="PackedScene" uid="uid://dwdfm5c3md84k" path="res://scenes/interaction/Pickup.tscn" id="4_o6mel"]
+[ext_resource type="PackedScene" uid="uid://3tfhu13r2fsf" path="res://scenes/puzzles/Lever.tscn" id="5_68kkm"]
+[ext_resource type="Resource" uid="uid://d04nyd3gprqww" path="res://data/items/bandage.tres" id="5_ur00s"]
+[ext_resource type="Resource" uid="uid://2ytr0eh8pmuh" path="res://data/items/pistol_item.tres" id="6_0vv12"]
+[ext_resource type="Script" uid="uid://cr6rv677xd8i" path="res://scripts/puzzles/puzzle_group.gd" id="6_n4g7x"]
+[ext_resource type="Script" uid="uid://cckoydpjrmdfw" path="res://scripts/journal/note_basement.gd" id="7_atrxo"]
+[ext_resource type="Resource" uid="uid://cp2bqmscengnh" path="res://data/items/ammo_pistol.tres" id="7_o5yuq"]
+[ext_resource type="PackedScene" uid="uid://pcebp21fpcn0" path="res://scenes/interaction/note_pickup.tscn" id="7_ur00s"]
+[ext_resource type="Resource" uid="uid://5j4hwkjhhyka" path="res://data/notes/note_RedKey.tres" id="8_4n8tn"]
+[ext_resource type="PackedScene" uid="uid://b2rdow6u6a2d3" path="res://scenes/interaction/hint_trigger.tscn" id="8_wndkh"]
+[ext_resource type="Resource" uid="uid://dimbjteueqk6b" path="res://data/notes/note_basement.tres" id="10_wkb0e"]
+[ext_resource type="Resource" uid="uid://udwtkux6kcy5" path="res://data/items/fuse.tres" id="10_xag4j"]
+[ext_resource type="PackedScene" uid="uid://byyqo5nx0e0op" path="res://scenes/damage_zone.tscn" id="11_wkb0e"]
+[ext_resource type="PackedScene" uid="uid://b3k5kr1vao7ha" path="res://scenes/evenment/destructible_box.tscn" id="12_axl34"]
+[ext_resource type="PackedScene" uid="uid://d4fmqwlwbjvxy" path="res://scenes/evenment/physical_box.tscn" id="13_8hjdj"]
+[ext_resource type="Resource" uid="uid://ct3bhhmcojlv3" path="res://data/items/ink_ribbon.tres" id="15_ra35m"]
+[ext_resource type="PackedScene" uid="uid://d0h7xteep2cv8" path="res://scenes/enemy.tscn" id="16_o5yuq"]
+[ext_resource type="PackedScene" uid="uid://b3yld5hr63sn" path="res://scenes/puzzles/code_lock.tscn" id="17_wjuib"]
+[ext_resource type="PackedScene" uid="uid://74oeshp5wyw2" path="res://scenes/evenment/storage_box.tscn" id="23_vr6yy"]
+[ext_resource type="PackedScene" uid="uid://q8salrfxuxrm" path="res://scenes/save_point.tscn" id="25_x7oem"]
+
+[sub_resource type="Environment" id="Environment_g4v7s"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_rmft8"]
+
+[sub_resource type="Compositor" id="Compositor_yf5fn"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_g4v7s"]
+vertices = PackedVector3Array(-12, 0.45, 12, -4.25, 0.45, 12, -4, 0.45, 7.75, -4, 0.45, -12, -12, 0.45, -12, -3, 0.45, -2.5, -2, 0.45, -2.75, -2, 0.45, -5, -2.75, 0.45, -7.5, 0.5, 0.45, -5.25, 0.75, 0.45, -12, -3.25, 0.45, -12, 2.25, 0.45, -5, 2.25, 0.45, -3.25, 12, 0.45, -3.25, 12, 0.45, -12, -1, 1.7, -4.25, -1, 1.7, -2.25, 1, 1.7, -2.25, 1, 1.7, -4.25, -1.75, 0.45, -1, 3.25, 0.45, 9.5, 2.25, 0.45, 9.75, 2.25, 0.45, 12, 12, 0.45, 12, -3, 0.45, 8, 1, 0.45, 8, 1.25, 0.45, 7.5, 3.25, 0.45, 7.75, 2.25, 0.45, -1.5, 1.75, 0.45, -1, 1, 0.45, 9.5, -3, 0.45, 12)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(6, 5, 7), PackedInt32Array(7, 5, 8), PackedInt32Array(7, 8, 9), PackedInt32Array(9, 8, 11), PackedInt32Array(9, 11, 10), PackedInt32Array(12, 9, 10), PackedInt32Array(14, 13, 12), PackedInt32Array(10, 15, 12), PackedInt32Array(12, 15, 14), PackedInt32Array(19, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(5, 6, 20), PackedInt32Array(22, 21, 23), PackedInt32Array(23, 21, 24), PackedInt32Array(26, 25, 27), PackedInt32Array(27, 25, 20), PackedInt32Array(20, 25, 5), PackedInt32Array(24, 21, 28), PackedInt32Array(13, 14, 29), PackedInt32Array(29, 14, 28), PackedInt32Array(28, 14, 24), PackedInt32Array(27, 20, 30), PackedInt32Array(30, 29, 27), PackedInt32Array(27, 29, 28), PackedInt32Array(31, 22, 23), PackedInt32Array(25, 26, 31), PackedInt32Array(23, 32, 31), PackedInt32Array(31, 32, 25)]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ylrst"]
+
+[sub_resource type="Resource" id="Resource_n4g7x"]
+script = ExtResource("7_atrxo")
+id = "note_LeverDoor"
+title = "Заметка"
+text = "Похоже нужно выставить в правильном порядке."
+metadata/_custom_type_script = "uid://cckoydpjrmdfw"
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_276te"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_546lt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wndkh"]
+
+[node name="TestLevel" type="Node3D" unique_id=1595702456]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1841695986]
+environment = SubResource("Environment_g4v7s")
+camera_attributes = SubResource("CameraAttributesPractical_rmft8")
+compositor = SubResource("Compositor_yf5fn")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=893103371]
+transform = Transform3D(1, 0, 0, 0, 0.8159896, 0.57806665, 0, -0.57806665, 0.8159896, 0, 2.087986, 2.9894936)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1229013424]
+navigation_mesh = SubResource("NavigationMesh_g4v7s")
+
+[node name="evenment" type="Node3D" parent="NavigationRegion3D" unique_id=795549748]
+
+[node name="Floor" type="CSGBox3D" parent="NavigationRegion3D/evenment" unique_id=251367888]
+transform = Transform3D(25, 0, 0, 0, 0.1, 0, 0, 0, 25, 0, 0, 0)
+use_collision = true
+
+[node name="Floor2" type="CSGBox3D" parent="NavigationRegion3D/evenment" unique_id=1358774119]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 2, -3.654182, 1, 0.8201308)
+use_collision = true
+
+[node name="Floor3" type="CSGBox3D" parent="NavigationRegion3D/evenment" unique_id=1574676620]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 2, -3.654182, 1, -1.1858151)
+use_collision = true
+
+[node name="Floor6" type="CSGBox3D" parent="NavigationRegion3D/evenment" unique_id=2107018556]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 2, -3.654182, 1, -4.3293447)
+use_collision = true
+
+[node name="Floor7" type="CSGBox3D" parent="NavigationRegion3D/evenment" unique_id=2074271361]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 2, -3.654182, 1, -6.351285)
+use_collision = true
+
+[node name="Floor8" type="CSGBox3D" parent="NavigationRegion3D/evenment" unique_id=1400811186]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 2, -3.654182, 1, -8.384003)
+use_collision = true
+
+[node name="Floor9" type="CSGBox3D" parent="NavigationRegion3D/evenment" unique_id=457244062]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 2, -3.654182, 1, -10.402817)
+use_collision = true
+
+[node name="Floor4" type="CSGBox3D" parent="NavigationRegion3D/evenment" unique_id=379363942]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 2, -3.654182, 1, 5.937198)
+use_collision = true
+
+[node name="Floor10" type="CSGBox3D" parent="NavigationRegion3D/evenment" unique_id=122577405]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 2, -3.654182, 1, 9.035162)
+use_collision = true
+
+[node name="Floor11" type="CSGBox3D" parent="NavigationRegion3D/evenment" unique_id=1018650378]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 2, -3.654182, 1, 11.055283)
+use_collision = true
+
+[node name="Floor5" type="CSGBox3D" parent="NavigationRegion3D/evenment" unique_id=964341650]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 2, -3.654182, 1, 3.9241083)
+use_collision = true
+
+[node name="LowCeiling" type="CSGBox3D" parent="NavigationRegion3D/evenment" unique_id=1515008513]
+transform = Transform3D(3, 0, 0, 0, 0.1, 0, 0, 0, 3, 0, 1.3, -3.25)
+use_collision = true
+
+[node name="DestructibleBox" parent="NavigationRegion3D/evenment" unique_id=64564591 instance=ExtResource("12_axl34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.227975, 0.05000007, 8.58766)
+
+[node name="PhysicalBox" parent="NavigationRegion3D/evenment" unique_id=314697643 instance=ExtResource("13_8hjdj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2942502, 2.2298422, -9.05308)
+physics_material_override = SubResource("PhysicsMaterial_ylrst")
+
+[node name="ItemSocket" parent="NavigationRegion3D/evenment" unique_id=505222109 node_paths=PackedStringArray("targets") instance=ExtResource("3_pgbyh")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5153968, 1.2319006, -6.970922)
+required_item = ExtResource("10_xag4j")
+targets = [NodePath("../Floor8")]
+target_method = "queue_free"
+
+[node name="Lever" parent="NavigationRegion3D/evenment" unique_id=1174404627 instance=ExtResource("5_68kkm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5554147, 1.0500001, 4.6307187)
+
+[node name="Lever2" parent="NavigationRegion3D/evenment" unique_id=1161503974 instance=ExtResource("5_68kkm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5554147, 1.0500001, 5.6307187)
+required_state = false
+
+[node name="Lever3" parent="NavigationRegion3D/evenment" unique_id=1012936052 instance=ExtResource("5_68kkm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5554147, 1.0500001, 6.6307187)
+
+[node name="Node3D" type="Node3D" parent="NavigationRegion3D/evenment" unique_id=1886494157 node_paths=PackedStringArray("pieces", "targets")]
+script = ExtResource("6_n4g7x")
+pieces = [NodePath("../Lever"), NodePath("../Lever2"), NodePath("../Lever3")]
+targets = [NodePath("../../../Door3")]
+reward_note = SubResource("Resource_n4g7x")
+
+[node name="Marker3D" type="Marker3D" parent="NavigationRegion3D" unique_id=1838761692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.377342, -0.1606533, 9.409799)
+
+[node name="Marker3D2" type="Marker3D" parent="NavigationRegion3D" unique_id=2117390306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.377342, -0.1606533, -8.404197)
+
+[node name="Player" parent="." unique_id=692152744 instance=ExtResource("1_46lwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1798482, 0.049999952, 2.6332412)
+walk_speed = 2.0
+sprint_speed = 3.5
+
+[node name="Door" parent="." unique_id=2021409791 instance=ExtResource("2_x25rp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.651595, 0.05000019, 2.906465)
+open_angle = null
+open_time = null
+open_away_from_player = null
+start_open = null
+locked = true
+required_key = ExtResource("3_e7anx")
+locked_message = null
+open_prompt = null
+close_prompt = null
+
+[node name="Door3" parent="." unique_id=842808297 instance=ExtResource("2_x25rp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.651595, 0.05000019, 7.994578)
+open_angle = null
+open_time = null
+open_away_from_player = null
+start_open = null
+locked = true
+required_key = ExtResource("3_e7anx")
+locked_message = null
+open_prompt = null
+close_prompt = null
+
+[node name="Door2" parent="." unique_id=896299788 instance=ExtResource("2_x25rp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.651595, 0.05000019, -2.245769)
+open_angle = null
+open_time = null
+open_away_from_player = null
+start_open = null
+locked = true
+required_key = ExtResource("3_e7anx")
+locked_message = null
+open_prompt = null
+close_prompt = null
+
+[node name="red_key" parent="." unique_id=334405632 instance=ExtResource("4_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5777, 0, -2)
+physics_material_override = SubResource("PhysicsMaterial_276te")
+item = ExtResource("3_e7anx")
+
+[node name="bandage" parent="." unique_id=278788955 instance=ExtResource("4_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1.3486555)
+physics_material_override = SubResource("PhysicsMaterial_546lt")
+item = ExtResource("5_ur00s")
+
+[node name="pistol" parent="." unique_id=759507865 instance=ExtResource("4_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3529997, 0, 0.49676514)
+physics_material_override = SubResource("PhysicsMaterial_546lt")
+item = ExtResource("6_0vv12")
+
+[node name="ammo_pistol" parent="." unique_id=614267250 instance=ExtResource("4_o6mel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3529997, 0, -7.2248335)
+physics_material_override = SubResource("PhysicsMaterial_546lt")
+item = ExtResource("7_o5yuq")
+amount = 60
+
+[node name="ammo_pistol2" parent="." unique_id=334709957 instance=ExtResource("4_o6mel")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.3529997, 0, 3.9216013)
+physics_material_override = SubResource("PhysicsMaterial_546lt")
+item = ExtResource("10_xag4j")
+
+[node name="ammo_pistol3" parent="." unique_id=1453990734 instance=ExtResource("4_o6mel")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 10.034589, 0, 5.712134)
+physics_material_override = SubResource("PhysicsMaterial_546lt")
+item = ExtResource("15_ra35m")
+
+[node name="Hud" parent="." unique_id=822356989 instance=ExtResource("2_w7r7j")]
+
+[node name="NotePickup" parent="." unique_id=79826857 instance=ExtResource("7_ur00s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05408767, -4.724126)
+physics_material_override = SubResource("PhysicsMaterial_wndkh")
+note = ExtResource("8_4n8tn")
+
+[node name="HintTrigger" parent="." unique_id=1544200067 instance=ExtResource("8_wndkh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2850018, 0.049999714, 2.5500927)
+note = ExtResource("10_wkb0e")
+
+[node name="DamageZone" parent="." unique_id=507504376 instance=ExtResource("11_wkb0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5407796, 0.049999952, -3.7945786)
+
+[node name="Enemy" parent="." unique_id=937014504 node_paths=PackedStringArray("patrol_points") instance=ExtResource("16_o5yuq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.832779, 0.060499236, 0.80374384)
+patrol_points = [NodePath("../NavigationRegion3D/Marker3D"), NodePath("../NavigationRegion3D/Marker3D2")]
+
+[node name="CodeLock" parent="." unique_id=1720281139 node_paths=PackedStringArray("targets") instance=ExtResource("17_wjuib")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5849493, 1.0500002, -1.89768)
+code = "471"
+targets = [NodePath("../Door2")]
+solve_message = "Замок щёлкнул"
+
+[node name="DestructibleBox" parent="." unique_id=579473611 instance=ExtResource("12_axl34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.482004, 0.05000007, -9.675743)
+
+[node name="StorageBox" parent="." unique_id=1516395352 instance=ExtResource("23_vr6yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.185785, 0.34999996, 10.531305)
+
+[node name="SavePoint" parent="." unique_id=355482547 instance=ExtResource("25_x7oem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.606174, 1.51, -2.0351183)

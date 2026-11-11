@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b2rdow6u6a2d3"]
+
+[ext_resource type="Script" uid="uid://b2mxc32axlmhw" path="res://scripts/interaction/hint_trigger.gd" id="1_7jegv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+
+[node name="HintTrigger" type="Area3D" unique_id=1544200067]
+script = ExtResource("1_7jegv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=60321427]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+shape = SubResource("BoxShape3D_g4v7s")
