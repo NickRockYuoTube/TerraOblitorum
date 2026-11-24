@@ -1,0 +1,216 @@
+[gd_scene format=3 uid="uid://dytdlypbi2f0n"]
+
+[ext_resource type="PackedScene" uid="uid://r4w41r77b6bg" path="res://prefabs/environment/pol_3x_3.tscn" id="5_yihe8"]
+[ext_resource type="PackedScene" uid="uid://c3uj3s3sx5xin" path="res://model/environment/wall.12x4_clear.glb" id="6_rsfpr"]
+[ext_resource type="PackedScene" uid="uid://bmrauqtsfkihc" path="res://prefabs/character/player.tscn" id="7_dshje"]
+[ext_resource type="Script" uid="uid://b6rn157evkkru" path="res://scripts/interaction/test_interactable.gd" id="8_wp51n"]
+[ext_resource type="PackedScene" uid="uid://clmdojxg837nm" path="res://prefabs/character/Distorted.tscn" id="9_c2sbp"]
+[ext_resource type="Script" uid="uid://ci133gkumut1a" path="res://scripts/interaction/test_damage_zone.gd" id="10_3ljfu"]
+
+[sub_resource type="Sky" id="Sky_d0u6y"]
+
+[sub_resource type="Environment" id="Environment_g4v7s"]
+sky = SubResource("Sky_d0u6y")
+reflected_light_source = 2
+fog_enabled = true
+fog_light_color = Color(0.27222756, 0.29824236, 0.3372637, 1)
+fog_light_energy = 0.5
+fog_sky_affect = 0.5
+volumetric_fog_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_yf5fn"]
+
+[sub_resource type="Compositor" id="Compositor_57qmd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g4v7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+
+[node name="Test" type="Node3D" unique_id=969182715]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1358291510]
+transform = Transform3D(1, 0, 0, 0, -0.78030616, 0.6253978, 0, -0.6253978, -0.78030616, 0, 4.100052, -21.22845)
+light_color = Color(0.92156863, 0.83137256, 0.6, 1)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1639025611]
+environment = SubResource("Environment_g4v7s")
+camera_attributes = SubResource("CameraAttributesPractical_yf5fn")
+compositor = SubResource("Compositor_57qmd")
+
+[node name="Player" parent="." unique_id=1568892525 instance=ExtResource("7_dshje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11175108, -0.022695541, -0.577651)
+bob_amplitude = 0.015
+step_length = 1.8
+
+[node name="TestBox" type="StaticBody3D" parent="." unique_id=582975826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5198094, 0.5, -19.094393)
+physics_material_override = SubResource("PhysicsMaterial_g4v7s")
+script = ExtResource("8_wp51n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestBox" unique_id=1789852753]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestBox" unique_id=1078596484]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499, -0.014019012)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="TestBox" unique_id=653404923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499, 1.0110798)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="TestBox3" type="StaticBody3D" parent="." unique_id=652786607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.534832, 0.5, -19.103365)
+physics_material_override = SubResource("PhysicsMaterial_g4v7s")
+script = ExtResource("8_wp51n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestBox3" unique_id=1102455768]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestBox3" unique_id=138691784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="TestBox3" unique_id=799684636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499, 1.0250988)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="TestBox2" type="StaticBody3D" parent="." unique_id=1749245606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46210396, 0.5, -7.9768)
+physics_material_override = SubResource("PhysicsMaterial_g4v7s")
+script = ExtResource("8_wp51n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestBox2" unique_id=225752659]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestBox2" unique_id=1717903564]
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="TestBox4" type="StaticBody3D" parent="." unique_id=913822407]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -6.7579403, 2, -5.068)
+physics_material_override = SubResource("PhysicsMaterial_g4v7s")
+script = ExtResource("8_wp51n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestBox4" unique_id=482691006]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestBox4" unique_id=318256641]
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="TestBox5" type="StaticBody3D" parent="." unique_id=1167969189]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 21.473606, 3, -5.4046116)
+physics_material_override = SubResource("PhysicsMaterial_g4v7s")
+script = ExtResource("8_wp51n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestBox5" unique_id=1371503597]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestBox5" unique_id=1103833102]
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="crip 5(fuck_off)" parent="." unique_id=793548813 instance=ExtResource("9_c2sbp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 12.915567, -0.022695541, -26.304628)
+
+[node name="DamageZone" type="Area3D" parent="." unique_id=1753117025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.81065, 0, -7.099984)
+script = ExtResource("10_3ljfu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageZone" unique_id=1388999473]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="DamageZone" unique_id=447261927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7465272, 0)
+light_color = Color(0.83571845, 1.732707e-06, 4.813075e-07, 1)
+light_energy = 2.0
+omni_range = 1.6709827
+
+[node name="HealZone" type="Area3D" parent="." unique_id=1948545000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.467632, 0, -7.099984)
+script = ExtResource("10_3ljfu")
+heal = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HealZone" unique_id=1323079582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="HealZone" unique_id=2098143948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7465272, 0)
+light_color = Color(5.0296635e-06, 0.60587794, 0.002904402, 1)
+light_energy = 2.0
+omni_range = 1.6709827
+
+[node name="floor" type="Node" parent="." unique_id=71154152]
+
+[node name="pol3x3" parent="floor" unique_id=1804555163 instance=ExtResource("5_yihe8")]
+
+[node name="pol3x4" parent="floor" unique_id=1008933921 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="pol3x23" parent="floor" unique_id=2094641958 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="pol3x24" parent="floor" unique_id=1559845676 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+
+[node name="pol3x5" parent="floor" unique_id=148056415 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="pol3x6" parent="floor" unique_id=1570628432 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3)
+
+[node name="pol3x7" parent="floor" unique_id=1124999688 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="pol3x8" parent="floor" unique_id=232198883 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -6)
+
+[node name="pol3x9" parent="floor" unique_id=451105797 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="pol3x10" parent="floor" unique_id=698044031 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -9)
+
+[node name="pol3x11" parent="floor" unique_id=272352500 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+
+[node name="pol3x12" parent="floor" unique_id=1697520933 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -12)
+
+[node name="pol3x13" parent="floor" unique_id=1812953541 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="pol3x14" parent="floor" unique_id=1980610380 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -15)
+
+[node name="pol3x15" parent="floor" unique_id=1059736917 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -12)
+
+[node name="pol3x16" parent="floor" unique_id=1395638296 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -12)
+
+[node name="pol3x17" parent="floor" unique_id=991473027 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -15)
+
+[node name="pol3x18" parent="floor" unique_id=1142722758 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -15)
+
+[node name="pol3x19" parent="floor" unique_id=1578522072 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -12)
+
+[node name="pol3x20" parent="floor" unique_id=629565333 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -12)
+
+[node name="pol3x21" parent="floor" unique_id=2033977170 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -15)
+
+[node name="pol3x22" parent="floor" unique_id=2091073367 instance=ExtResource("5_yihe8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -15)
+
+[node name="wall_12x4_clear" parent="." unique_id=397505781 instance=ExtResource("6_rsfpr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.5109005, 1.9725933, 1.4673839)

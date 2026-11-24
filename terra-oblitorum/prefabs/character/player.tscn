@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bmrauqtsfkihc"]
+
+[ext_resource type="Script" uid="uid://ceng471cvdyr5" path="res://scripts/player/player.gd" id="1_7b6ue"]
+[ext_resource type="Script" uid="uid://c15v81tmvpx66" path="res://scripts/components/health.gd" id="2_4pcmp"]
+[ext_resource type="Script" uid="uid://bfmton5w3qb6u" path="res://scripts/ui/damage_overlay.gd" id="3_vab5e"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g4v7s"]
+radius = 0.3
+
+[node name="Player" type="CharacterBody3D" unique_id=1568892525]
+script = ExtResource("1_7b6ue")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1223094171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_g4v7s")
+
+[node name="Head" type="Node3D" parent="." unique_id=1752947417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8147023, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=766605305]
+fov = 65.0
+
+[node name="InteractRay" type="RayCast3D" parent="Head/Camera3D" unique_id=1170247461]
+
+[node name="Health" type="Node" parent="." unique_id=1631057226]
+script = ExtResource("2_4pcmp")
+
+[node name="DamageOverlay" type="CanvasLayer" parent="." unique_id=825246301]
+script = ExtResource("3_vab5e")
