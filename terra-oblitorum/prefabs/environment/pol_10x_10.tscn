@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bhjnnipa1haec"]
+
+[ext_resource type="PackedScene" uid="uid://p4ko4xsd381j" path="res://model/environment/pol10x10.glb" id="1_bhj6i"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yiqxe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swwou"]
+
+[node name="pol10x10" unique_id=417887839 instance=ExtResource("1_bhj6i")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1340269611]
+physics_material_override = SubResource("PhysicsMaterial_yiqxe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1650518989]
+transform = Transform3D(10, 0, 0, 0, 0.01, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("BoxShape3D_swwou")
