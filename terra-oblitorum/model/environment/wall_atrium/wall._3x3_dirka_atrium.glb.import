@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b6syixv5jwogy"
-path="res://.godot/imported/wall._3x3_dirka.glb-e249f3c141d22c86e8b6ec6b336012d6.scn"
+uid="uid://wn0ouvjnfwr"
+path="res://.godot/imported/wall._3x3_dirka_atrium.glb-3a4722864504b3b49aa5dba3915907fa.scn"
 
 [deps]
 
-source_file="res://model/environment/wall_atrium/wall._3x3_dirka.glb"
-dest_files=["res://.godot/imported/wall._3x3_dirka.glb-e249f3c141d22c86e8b6ec6b336012d6.scn"]
+source_file="res://model/environment/wall_atrium/wall._3x3_dirka_atrium.glb"
+dest_files=["res://.godot/imported/wall._3x3_dirka_atrium.glb-3a4722864504b3b49aa5dba3915907fa.scn"]
 
 [params]
 

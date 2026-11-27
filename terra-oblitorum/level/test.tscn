@@ -3,13 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://r4w41r77b6bg" path="res://prefabs/environment/pol_3x_3.tscn" id="5_yihe8"]
 [ext_resource type="PackedScene" uid="uid://7cwtqmjiuces" path="res://model/environment/wall_atrium/wall._3x3_clear.glb" id="6_rsfpr"]
 [ext_resource type="PackedScene" uid="uid://bmrauqtsfkihc" path="res://prefabs/character/player.tscn" id="7_dshje"]
-[ext_resource type="PackedScene" uid="uid://b6syixv5jwogy" path="res://model/environment/wall_atrium/wall._3x3_dirka.glb" id="7_wp51n"]
 [ext_resource type="PackedScene" uid="uid://bxrl3fxroqtw1" path="res://model/environment/wall_kabinet/potolok_3x3_kabinet.glb" id="8_3ljfu"]
 [ext_resource type="Script" uid="uid://b6rn157evkkru" path="res://scripts/interaction/test_interactable.gd" id="8_wp51n"]
+[ext_resource type="PackedScene" uid="uid://wn0ouvjnfwr" path="res://model/environment/wall_atrium/wall._3x3_dirka_atrium.glb" id="9_3ljfu"]
 [ext_resource type="PackedScene" uid="uid://clmdojxg837nm" path="res://prefabs/character/Distorted.tscn" id="9_c2sbp"]
-[ext_resource type="PackedScene" uid="uid://ve54klcs8k6" path="res://model/environment/wall_kabinet/wall._3x3_kabinet.glb" id="9_omxvp"]
+[ext_resource type="PackedScene" uid="uid://pwe6rylwhklc" path="res://model/environment/wall_kabinet/wall._3x3_kabinet.glb" id="9_omxvp"]
 [ext_resource type="Script" uid="uid://ci133gkumut1a" path="res://scripts/interaction/test_damage_zone.gd" id="10_3ljfu"]
-[ext_resource type="PackedScene" uid="uid://d3vtul84j8j0i" path="res://model/environment/wall_kabinet/wall._3x3_dirka_kabinet.glb" id="10_pwqg8"]
 
 [sub_resource type="Sky" id="Sky_d0u6y"]
 
@@ -443,15 +442,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 
 [node name="wall__3x3_clear21" parent="wall" unique_id=1036479496 instance=ExtResource("6_rsfpr")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 16, 0, -30)
 
-[node name="wall__3x3_dirka" parent="." unique_id=1235900831 instance=ExtResource("7_wp51n")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, 0)
-
-[node name="wall__3x3_dirka2" parent="." unique_id=2120413578 instance=ExtResource("7_wp51n")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6, 0, -10.241871)
-
-[node name="wall__3x3_dirka3" parent="." unique_id=1805835711 instance=ExtResource("7_wp51n")]
-transform = Transform3D(-1, 0, 3.019916e-07, 0, 1, 0, -1.509958e-07, 0, -2, 12, 0, -30.999538)
-
 [node name="potolok_3x3_kabinet" parent="." unique_id=1566314582 instance=ExtResource("8_3ljfu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, -9)
 
@@ -469,12 +459,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 4, -9)
 
 [node name="potolok_3x3_kabinet6" parent="." unique_id=1960906961 instance=ExtResource("8_3ljfu")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 12, 4, -6)
-
-[node name="wall__3x3_kabinet" parent="." unique_id=142177183 instance=ExtResource("9_omxvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -10)
-
-[node name="wall__3x3_kabinet2" parent="." unique_id=1711006756 instance=ExtResource("9_omxvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -10)
 
 [node name="wall__3x3_kabinet4" parent="." unique_id=1942444063 instance=ExtResource("9_omxvp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -5)
@@ -530,8 +514,8 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0
 [node name="wall__3x3_kabinet6" parent="." unique_id=1538527214 instance=ExtResource("9_omxvp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 0, -6)
 
-[node name="wall__3x3_dirka_kabinet" parent="." unique_id=2077089236 instance=ExtResource("10_pwqg8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -10.239702)
+[node name="wall__3x3_dirka_atrium" parent="." unique_id=323182273 instance=ExtResource("9_3ljfu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0, 0)
 
-[node name="wall__3x3_dirka_kabinet2" parent="." unique_id=1536640498 instance=ExtResource("10_pwqg8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 12.007759, 0, -32.00406)
+[node name="wall__3x3_kabinet" parent="." unique_id=557928000 instance=ExtResource("9_omxvp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -11)

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1p8gblhhlbbh"
-path.s3tc="res://.godot/imported/wall_bake.png-700a7a5947aa5f056ac061d5d53807b8.s3tc.ctex"
+uid="uid://cvd4g4lviujs2"
+path.s3tc="res://.godot/imported/wall_bake3x3_dirka_kabinet.png-4526f0e22b12ce9aa8a925ea945df339.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "34ce193aa81e9584bfc4a682fea1abd7"
+"md5": "518a4e241dbef7d2ed2519609c75f3f2"
 }
 
 [deps]
 
-source_file="res://model/environment/wall_atrium/wall_bake.png"
-dest_files=["res://.godot/imported/wall_bake.png-700a7a5947aa5f056ac061d5d53807b8.s3tc.ctex"]
+source_file="res://model/environment/wall_kabinet/wall_bake3x3_dirka_kabinet.png"
+dest_files=["res://.godot/imported/wall_bake3x3_dirka_kabinet.png-4526f0e22b12ce9aa8a925ea945df339.s3tc.ctex"]
 
 [params]
 

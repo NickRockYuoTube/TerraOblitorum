@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtq2yeb3d6tyy"
-path.s3tc="res://.godot/imported/wall_oboi.jpg-d31c438fc8ba76b8e14583ab2dc72533.s3tc.ctex"
+uid="uid://dmnd2sa4upeou"
+path.s3tc="res://.godot/imported/wall_bake_dirka_atrium.png-90cc1743762314fecc597ffd15543579.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "def34d6c93a0494d4ae019664f1c11f0"
+"md5": "ce627a840d2c6cf93d251ff934f3ff20"
 }
 
 [deps]
 
-source_file="res://model/environment/wall_kabinet/wall_oboi.jpg"
-dest_files=["res://.godot/imported/wall_oboi.jpg-d31c438fc8ba76b8e14583ab2dc72533.s3tc.ctex"]
+source_file="res://model/environment/wall_atrium/wall_bake_dirka_atrium.png"
+dest_files=["res://.godot/imported/wall_bake_dirka_atrium.png-90cc1743762314fecc597ffd15543579.s3tc.ctex"]
 
 [params]
 
