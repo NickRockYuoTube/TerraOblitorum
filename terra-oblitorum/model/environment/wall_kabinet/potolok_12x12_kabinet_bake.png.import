@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhqsn2yjr04ie"
-path.s3tc="res://.godot/imported/wall12x4_bake.png-88c5541ac7f8d9c2e9041c050b18f371.s3tc.ctex"
+uid="uid://df1i58pw6rtad"
+path.s3tc="res://.godot/imported/potolok_12x12_kabinet_bake.png-7a125380b737a1bce0c4eec04d9d3f0c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "cc33cafc1dd061a58608772651e03728"
+"md5": "d138480a6c2f2e6d4ce7079d91be15ef"
 }
 
 [deps]
 
-source_file="res://model/environment/wall12x4_bake.png"
-dest_files=["res://.godot/imported/wall12x4_bake.png-88c5541ac7f8d9c2e9041c050b18f371.s3tc.ctex"]
+source_file="res://model/environment/wall_kabinet/potolok_12x12_kabinet_bake.png"
+dest_files=["res://.godot/imported/potolok_12x12_kabinet_bake.png-7a125380b737a1bce0c4eec04d9d3f0c.s3tc.ctex"]
 
 [params]
 
